@@ -9,7 +9,9 @@ class HomeProvider extends GetConnect {
       return Future.error(response.statusText!);
     } else {
       final List listCoffe = response.body;
-      return listCoffe.map((e) => CoffeModel.fromJson(e)).toList();
+      var list = listCoffe.map((e) => CoffeModel.fromJson(e)).toList();
+      var sortedList = list.reversed.toList();
+      return sortedList;
     }
   }
 }
